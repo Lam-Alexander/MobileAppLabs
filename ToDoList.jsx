@@ -1,10 +1,18 @@
 import React from "react";
 import { ScrollView, Pressable, View, StyleSheet, Text, SafeAreaView, TextInput, Button} from "react-native";
 
-function ToDoList (){
+function ToDoList ({ tasks }){
     return (
         <ScrollView style = {styles.All}>
-            <Pressable>
+            {tasks.map((task, index) =>(
+                <Pressable key = {index}>
+                    <View style = {styles.task}>
+                        <Text style = {styles.taskText}>{task}</Text>
+                    </View>
+                </Pressable>
+            ))}
+
+            {/* <Pressable>
                 <View style={[styles.task, styles.completed]}>
                     <Text style={styles.taskText}>Do laundry</Text>
                 </View>
@@ -20,7 +28,7 @@ function ToDoList (){
                 <View style={[styles.task, styles.completed]}>
                     <Text style={styles.taskText}>Walk dog</Text>
                 </View>
-            </Pressable>
+            </Pressable> */}
 
             <SafeAreaView>
                 <View style={styles.form}>
