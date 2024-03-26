@@ -1,5 +1,6 @@
-import ToDoList from './ToDoList';
 import React, { useState } from 'react';
+import ToDoList from './ToDoList';
+import ToDoForm from './ToDoForm';
 
 export default function App() {
   const [tasks, setTasks] = useState([
@@ -8,7 +9,15 @@ export default function App() {
     'Walk dog',
   ]);
 
+  const addTask = (task) => {
+    setTasks([...tasks, task]);
+  };
+
   return (
-    < ToDoList tasks = {tasks}/>
+    <>
+      <ToDoList tasks = {tasks} />
+      <ToDoForm addTask = {addTask} />
+    </>
+    
   );
 };
